@@ -45,12 +45,13 @@ ul{list-style:none;}
 .hkick{display:flex;align-items:center;gap:1rem;margin-bottom:2rem;opacity:0;}
 .hkline{width:48px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));}
 .hkick span{font-family:var(--ft);font-size:.72rem;letter-spacing:.35em;color:var(--gold);text-transform:uppercase;}
-.hname{font-family:var(--fdd);font-size:clamp(3rem,8vw,8rem);line-height:.92;letter-spacing:.04em;font-weight:700;color:var(--ivory);margin-bottom:1rem;}
-.hname .ln{display:block;overflow:hidden;}
-.hname .ln span{display:block;transform:translateY(110%);}
+.hname{font-family:var(--fdd);font-size:clamp(2.5rem,8vw,5rem);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:1rem;}
+.hname .ln{display:inline-block;transition:transform .3s;}
+.hname .ln:hover{transform:translateY(-5px);}
 .hname .gw{color:var(--gold);}
-.htitle{font-family:var(--ft);font-size:clamp(.9rem,1.8vw,1.15rem);letter-spacing:.3em;color:var(--silver);text-transform:uppercase;margin-bottom:2rem;opacity:0;}
-.hdesc{font-family:var(--fb);font-size:clamp(1rem,1.8vw,1.2rem);color:var(--plat);line-height:1.85;max-width:560px;margin-bottom:3rem;opacity:0;}
+.htitle{font-family:var(--ft);font-size:1rem;letter-spacing:.25em;color:var(--ash);text-transform:uppercase;margin-bottom:1.5rem;}
+.hsubtitle{font-family:var(--ft);font-size:1.1rem;letter-spacing:.15em;color:var(--gold);text-transform:uppercase;margin-bottom:1.5rem;font-weight:500;}
+.hdesc{font-family:var(--fb);font-size:1.25rem;line-height:1.7;color:var(--plat);max-width:600px;margin-bottom:2.5rem;}
 .hdesc em{font-style:italic;color:var(--goldl);}
 .hcta{display:flex;gap:1.25rem;opacity:0;}
 .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;font-family:var(--ft);font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;cursor:none;position:relative;overflow:hidden;border:1px solid;transition:color .35s;}
@@ -203,6 +204,7 @@ footer{background:var(--void);border-top:1px solid var(--steel);padding:3.5rem 0
     <div class="hkick"><div class="hkline"></div><span>Billionaire · Philanthropist · Developer</span></div>
     <h1 class="hname"><span class="ln"><span>Sumit</span></span><span class="ln"><span class="gw">Cheriyan</span></span></h1>
     <p class="htitle">Android Developer &nbsp;·&nbsp; Technology Consultant, Deloitte &nbsp;·&nbsp; 6.5 Years</p>
+    <p class="hsubtitle">Part-time Batman at Deloitte</p>
     <p class="hdesc">Cheriyan Tech doesn't just build things — it builds the <em>future</em>. Six and a half years engineering Android applications at the intersection of precision architecture and elegant craft. Currently consulting at <em>Deloitte</em>.</p>
     <div class="hcta"><a href="#projects" class="btn btn-g"><span class="btn-i">View Ventures</span></a><a href="#contact" class="btn btn-d"><span class="btn-i">Open Channel</span></a></div>
   </div>
