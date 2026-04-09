@@ -285,9 +285,9 @@ footer{background:var(--void);border-top:1px solid var(--steel);padding:3.5rem 0
       </div>
       <div data-r>
         <form class="cf" id="cform">
-          <div class="ff"><input type="text" id="fn" placeholder=" " required/><label for="fn">Your Name</label><div class="fu"></div></div>
-          <div class="ff"><input type="email" id="fe" placeholder=" " required/><label for="fe">Your Email</label><div class="fu"></div></div>
-          <div class="ff"><textarea id="fm" rows="5" placeholder=" " required></textarea><label for="fm">Your Message</label><div class="fu"></div></div>
+          <div class="ff"><input type="text" id="fn" name="name" placeholder=" " required/><label for="fn">Your Name</label><div class="fu"></div></div>
+          <div class="ff"><input type="email" id="fe" name="email" placeholder=" " required/><label for="fe">Your Email</label><div class="fu"></div></div>
+          <div class="ff"><textarea id="fm" name="message" rows="5" placeholder=" " required></textarea><label for="fm">Your Message</label><div class="fu"></div></div>
           <button type="submit" class="btn btn-g btn-full"><span class="btn-i">Transmit Message</span></button>
         </form>
       </div>
@@ -386,7 +386,7 @@ const sto=new IntersectionObserver(entries=>{entries.forEach(en=>{if(!en.isInter
 document.querySelectorAll('.sr').forEach(r=>sto.observe(r));
 
 // FORM
-document.getElementById('cform')?.addEventListener('submit',e=>{e.preventDefault();const btn=e.target.querySelector('button');anime({targets:btn,scale:[1,.96,1],duration:300,easing:'easeInOutQuad'});btn.querySelector('.btn-i').textContent='✓ Message Transmitted';btn.style.borderColor='#4a7c4a';btn.style.color='#6ab06a';setTimeout(()=>{btn.querySelector('.btn-i').textContent='Transmit Message';btn.style.borderColor='';btn.style.color='';e.target.reset();},3000);});
+document.getElementById('cform')?.addEventListener('submit',async e=>{e.preventDefault();const form=e.target;const btn=form.querySelector('button');const bi=btn.querySelector('.btn-i');bi.textContent='Transmitting…';btn.disabled=true;anime({targets:btn,scale:[1,.96,1],duration:300,easing:'easeInOutQuad'});try{const res=await fetch('https://formspree.io/f/mvzvndzq',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)});if(res.ok){bi.textContent='✓ Message Transmitted';btn.style.borderColor='#4a7c4a';btn.style.color='#6ab06a';form.reset();setTimeout(()=>{bi.textContent='Transmit Message';btn.style.borderColor='';btn.style.color='';btn.disabled=false;},3000);}else{bi.textContent='✗ Transmission Failed';btn.style.borderColor='#c0392b';btn.style.color='#e74c3c';setTimeout(()=>{bi.textContent='Transmit Message';btn.style.borderColor='';btn.style.color='';btn.disabled=false;},3000);}}catch{bi.textContent='✗ Transmission Failed';btn.style.borderColor='#c0392b';btn.style.color='#e74c3c';setTimeout(()=>{bi.textContent='Transmit Message';btn.style.borderColor='';btn.style.color='';btn.disabled=false;},3000);}});
 </script>
 </body>
 </html>
